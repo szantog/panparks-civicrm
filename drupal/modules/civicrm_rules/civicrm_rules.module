@@ -175,7 +175,10 @@ FROM   civicrm_mailing
 */
 function civicrm_rules_permission()
 {
-    return array('access civicrm rules settings');
+    return array('access civicrm rules settings' => array(
+        'title' => t('Access civicrm rules settings'),
+      ),
+    );
 }
 
 function civicrm_rules_menu() {
