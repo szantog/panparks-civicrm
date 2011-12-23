@@ -68,18 +68,18 @@
    *  function civicrm_date_api_fields()
    *     Tells Views which fields to expose as Date API fields
    */
-   
-   
+
+
 
   /**
    * Implementation of hook_views_data()
    */
 function civicrm_views_data() {
-    
+
     if ( ! civicrm_initialize( ) ) {
         return;
-    }	
-    
+    }
+
     require_once 'CRM/Core/Config.php';
     require_once 'CRM/Core/BAO/CustomGroup.php';
     require_once 'CRM/Core/DAO.php';
@@ -1320,9 +1320,9 @@ function civicrm_views_data() {
                                                                          'base field' => 'id',
                                                                          'handler' => 'views_handler_relationship',
                                                                          'label' => t('Related Phone')
-                                                                         )           
+                                                                         )
                                                  );
-											
+
     //TODO: Mobile Provider
 
     //PHONE TYPE  , Phone, Mobile, Fax or Pager
@@ -1451,7 +1451,7 @@ function civicrm_views_data() {
                                                                     'base field' => 'id',
                                                                     'handler' => 'views_handler_relationship',
                                                                     'label' => t('Related Phone')
-                                                                    )   
+                                                                    )
                                             );
 
 
@@ -1827,7 +1827,7 @@ function civicrm_views_data() {
                                                           'left_field'   => 'uf_id',
                                                           'field'        => 'uid',
     );
-      //Display Participants in User Views    
+      //Display Participants in User Views
     $data['civicrm_uf_match']['table']['join']['civicrm_participant'] = array(
                                                           'left_field'   => 'contact_id',
                                                           'field'        => 'contact_id',
@@ -2137,7 +2137,7 @@ function civicrm_views_data() {
                                                            'title' => t('CiviCRM Contributions'),
                                                            'help' => t("View displays CiviCRM Contributions, with relation to contacts."),
                                                            );
-                                                                  
+
     //CiviCRM recurring contributions - make this available as a base table too
     $data['civicrm_contribution_recur']['table']['base'] = array(
                                                                  'field' => 'id',
@@ -2196,7 +2196,7 @@ function civicrm_views_data() {
                                                                   'handler' => 'views_handler_relationship',
                                                                   'label' => t('CiviCRM Contact, with custom fields'),
                                                                   ),
-                                                        
+
                                                         );
     //Contribution Type
     $data['civicrm_contribution']['contribution_type'] = array(
@@ -2676,7 +2676,7 @@ function civicrm_views_data() {
                                                                           ),
                                                           );
 
-    
+
     $data['civicrm_contribution']['campaign_id'] = array(
                                                          'title' => t('Campaign'),
                                                          'help' => t('Contribution -> Campaign'),
@@ -2727,7 +2727,7 @@ function civicrm_views_data() {
                                                                      'handler' => 'views_handler_sort',
                                                                      ),
                                                      );
-    
+
     //Numeric Contact ID of the Soft Credit recipient
     $data['civicrm_contribution_soft']['contact_id'] = array(
                                                              'title' => t('Contact ID'),
@@ -2736,7 +2736,7 @@ function civicrm_views_data() {
                                                                               'handler' => 'views_handler_field_numeric',
                                                                               'click sortable' => TRUE,
                                                                               ),
-            
+
                                                              'argument' => array(
                                                                              'handler' => 'views_handler_argument_numeric',
                                                                              'numeric' => TRUE,
@@ -2865,7 +2865,7 @@ function civicrm_views_data() {
                                                                       'handler' => 'views_handler_sort',
                                                                       ),
                                                       );
-                                                      
+
 	$data['civicrm_contribution_recur']['contact_id'] = array(
                                                 'title' => t('Contact ID'),
                                                 'help'  => t('The contact who is paying the recurring pledge'),
@@ -2893,7 +2893,7 @@ function civicrm_views_data() {
                                                                 'handler' => 'views_handler_sort',
                                                                 ),
                                                 );
-  
+
     //Recurring Contribution Amount
     $data['civicrm_contribution_recur']['amount'] = array(
                                                           'title' => t('Amount'),
@@ -4653,11 +4653,11 @@ function civicrm_views_data() {
                                                          'handler' => 'views_handler_argument_numeric',
                                                          'numeric' => TRUE,
                                                          ),
-      
+
                                       'filter' => array(
                                                         'handler' => 'views_handler_filter_numeric',
                                                         ),
-    
+
                                       'sort' => array(
                                                         'handler' => 'views_handler_sort',
                                                       ),
@@ -4732,7 +4732,7 @@ function civicrm_views_data() {
                                                                   'handler' => 'views_handler_sort',
                                                                 ),
                                               );
-    
+
     // page text
     $data['civicrm_pcp']['page_text'] = array(
                                             'title'   => t('Page text'),
@@ -4873,7 +4873,7 @@ function civicrm_views_data() {
                                                                  ),
                                                  'sort' => array(
                                                                 'handler' => 'views_handler_sort',
-                                                                ),      
+                                                                ),
                                              );
 
     // referer (not really sure what this is, but...)
@@ -5795,12 +5795,12 @@ function civicrm_views_data() {
                                                                              'handler' => 'views_handler_sort',
                                                                              ),
                                                              );
-    
-    
+
+
     /**
      *CiviCRM Campaign Base Table
      */
-    
+
     $data['civicrm_campaign']['table']['group']  = t('CiviCRM Campaigns');
 
     $data['civicrm_campaign']['table']['base'] = array(
@@ -5942,7 +5942,7 @@ function civicrm_views_data() {
                                                                        'is date' => TRUE,
                                                                        ),
                                                   );
-   
+
     civicrm_views_add_date_arguments($data['civicrm_campaign'],array('title' =>'Campaign End Date',
                                                                      'name' => 'end_date'));
 
@@ -6082,10 +6082,10 @@ function civicrm_views_data() {
                                                                       ),
                                                       );
 
-                                                      
+
    /*
     * UF Match table - expose drupal ID
-    */                                                   
+    */
     $data['civicrm_uf_match']['table']['group'] = t("CiviCRM Drupal match table");
     $data['civicrm_uf_match']['uf_id'] = array(
                                                       'title' => t('Drupal User ID'),
@@ -6093,7 +6093,7 @@ function civicrm_views_data() {
                                                       'field' => array(
                                                                        'handler' => 'views_handler_field_numeric',
                                                                        'click sortable' => TRUE,
-                                                      ), 
+                                                      ),
                                                       'argument' => array(
                                                                        'handler' => 'views_handler_argument_numeric',
                                                                        'numeric' => TRUE,
@@ -6107,9 +6107,9 @@ function civicrm_views_data() {
                                                       'sort' => array(
                                                       'handler' => 'views_handler_sort',
                                                                        ),
-    
+
                                                       );
-                                                      
+
     /*
      * CiviCRM Grants Base Table
      */
@@ -6352,7 +6352,7 @@ function civicrm_views_data() {
                                                    'filter' => array(
                                                                      'handler' => 'views_handler_filter_numeric',
                                                                      'allow empty' => TRUE,
-			
+
                                                                      ),
                                                    'sort' => array(
                                                                    'handler' => 'views_handler_sort',
@@ -6452,7 +6452,7 @@ function civicrm_views_data() {
                                ),
               );
 
-  
+
     //Relationship Text Link
     $data['civicrm_relationship']['text_link'] =
         array(
@@ -6461,12 +6461,12 @@ function civicrm_views_data() {
                                'help' => t('Creates a Text Link for various relationship actions.'),
                                'handler' => 'civicrm_handler_field_link_relationship',
                                ),
-              );  
+              );
 
     $query = "select id, extends, extends_entity_column_value, style from civicrm_custom_group where is_active = 1";
 
     $dao = CRM_Core_DAO::executeQuery( $query );
-  
+
 
     while ( $dao->fetch( ) ) {
         // call getTree using $dao->id as groupID and $dao->extends as entityType
@@ -6503,7 +6503,7 @@ function civicrm_views_add_fields( &$fields, &$data, &$skipFields, $tableName ) 
         $data[$value['name']] = array(
                                       'title' => $value['title'],
                                       'help'  => $value['title'],
-                                      'field' => array( 
+                                      'field' => array(
                                                        'handler' => civicrm_get_field_handler  ( $type ),
                                                        'click sortable' => true,
                                                         ),
@@ -6515,7 +6515,7 @@ function civicrm_views_add_fields( &$fields, &$data, &$skipFields, $tableName ) 
                                                         ),
                                       'argument' => array(
                                                           'handler' => civicrm_get_argument_handler ( $type ),
-                                                          ),                                      
+                                                          ),
                                      );
 
         // For date fields add in 6 arguments
@@ -6598,7 +6598,7 @@ function civicrm_views_custom_data_cache($data, $entity_type, $groupID, $subType
 
     $jointable = null;
     switch ($entity_type) {
-             
+
     case "Contact":
     case "Individual":
     case "Household":
@@ -6650,10 +6650,10 @@ function civicrm_views_custom_data_cache($data, $entity_type, $groupID, $subType
                                       ),
                   );
         // expose custom data to users view - note I tested with contact & membership fields which worked
-        // event won't work due to missing relationship in chain. 
+        // event won't work due to missing relationship in chain.
         // 'contribution' & 'activity' not currently related to users so excluded
         if($jointable != 'civicrm_event' && $jointable != 'civicrm_activity' && $jointable != 'civicrm_contribution'){
-          $data[$currentgroup['table_name']]['table']['join']['users'] = 
+          $data[$currentgroup['table_name']]['table']['join']['users'] =
             array(
                               'left_table' => $jointable,
 															'left_field' => 'id',
@@ -6662,14 +6662,14 @@ function civicrm_views_custom_data_cache($data, $entity_type, $groupID, $subType
                   );
         }
         $currentgroupfields = $currentgroup['fields'];
-        $customHTMLTypes = array( 'Select', 'Multi-Select', 'AdvMulti-Select', 'Radio', 'CheckBox', 
+        $customHTMLTypes = array( 'Select', 'Multi-Select', 'AdvMulti-Select', 'Radio', 'CheckBox',
                                   'Select State/Province', 'Select Country', 'Multi-Select Country',
                                   'Multi-Select State/Province', 'Autocomplete-Select' );
         $customMultiValueHTMLTypes = array( 'Multi-Select', 'AdvMulti-Select', 'CheckBox', 'Multi-Select Country',
                                             'Multi-Select State/Province');
 
         foreach ($currentgroupfields as $key => $currentfield) {
-            if (empty($currentfield['help_post'])) { 
+            if (empty($currentfield['help_post'])) {
                 $currentfield['help_post'] = t('Custom Data Field');
             } // Populates help text so there isn't miles of error: Missing Help
 
@@ -6682,11 +6682,11 @@ function civicrm_views_custom_data_cache($data, $entity_type, $groupID, $subType
              }else {
                 $handler = civicrm_get_field_handler( $currentfield['data_type'] );
             }
-            
+
             if ( !empty($currentfield['option_group_id']) && in_array($currentfield['html_type'], $customMultiValueHTMLTypes) ){
                 $filter_handler = 'civicrm_handler_filter_custom_option';
             } elseif ( !empty($currentfield['option_group_id']) ){
-                $filter_handler = 'civicrm_handler_filter_custom_single_option';  
+                $filter_handler = 'civicrm_handler_filter_custom_single_option';
             } else {
                 $filter_handler = civicrm_get_filter_handler( $currentfield['data_type'] );
             }
@@ -6721,7 +6721,7 @@ function civicrm_views_custom_data_cache($data, $entity_type, $groupID, $subType
             }
         }
     }
-    return $data; 
+    return $data;
 }
 
 
@@ -6745,15 +6745,15 @@ function civicrm_get_field_handler($type) {
 
     case "StateProvince":
         return 'civicrm_handler_field_state';
-  
+
     case "Country":
         return 'civicrm_handler_field_country';
 
     case "County":
         return 'civicrm_handler_field_county';
-    
+
     default:
-        return 'views_handler_field'; 
+        return 'views_handler_field';
     }
 }
 
@@ -6761,7 +6761,7 @@ function civicrm_get_argument_handler($type) {
     switch ($type) {
     case "String":
     case "Memo":
-        return 'views_handler_argument';   
+        return 'views_handler_argument';
 
     case "Float":
     case "Int":
@@ -6775,13 +6775,13 @@ function civicrm_get_argument_handler($type) {
 
     case "StateProvince":
         return 'views_handler_argument';
-  
+
     case "Country":
         return 'views_handler_argument';
-        
+
     case "County":
         return 'views_handler_argument';
-    
+
     default:
         return 'views_handler_argument';
     }
@@ -6805,13 +6805,13 @@ function civicrm_get_filter_handler($type) {
 
     case "StateProvince":
         return 'civicrm_handler_filter_state';
-  
+
     case "Country":
         return 'civicrm_handler_filter_country';
 
     case "County":
-        return 'civicrm_handler_filter_county';    
-    
+        return 'civicrm_handler_filter_county';
+
     default:
         return 'views_handler_filter_string';
     }
@@ -6833,13 +6833,13 @@ function civicrm_get_sort_handler($type) {
 
     case "StateProvince":
         return 'views_handler_sort';
-  
+
     case "Country":
         return 'views_handler_sort';
-        
+
     case "County":
-        return 'views_handler_sort';    
-    
+        return 'views_handler_sort';
+
     default:
         return 'views_handler_sort';
     }
@@ -6895,24 +6895,24 @@ function civicrm_date_views_tables() {
 function civicrm_views_plugins() {
   if (module_exists('calendar')) {
     $civicrm_module_path = drupal_get_path('module', 'civicrm');
-  
+
     $data = array(
       'module' => 'civicrm', // This just tells our themes are elsewhere.
-  
+
       'row' => array(
         'civicrm_event_calendar' => array(
           'title' => t('Calendar Items'),
           'help' => t('Displays each selected node as a Calendar item.'),
           'handler' => 'calendar_plugin_row_civicrm_event',
           'path' => "$civicrm_module_path/modules/views/plugins",
-          'base' => array('civicrm_event'), 
+          'base' => array('civicrm_event'),
           'uses options' => TRUE,
           'uses fields' => TRUE,
           'type' => 'normal',
         ),
       ),
     );
-    
+
   }
   return $data;
 }
@@ -7029,10 +7029,10 @@ function civicrm_views_handlers() {
                        'civicrm_handler_field_relationship_type' => array(
                                                                           'parent' => 'views_handler_field',
                                                                           ),
-                                                                          
+
                        'civicrm_handler_field_drupalid' => array(
                                                                  'parent' => 'views_handler_field',
-                                                                 ),      
+                                                                 ),
                        'civicrm_handler_field_membership_type' => array(
                                                                         'parent' => 'views_handler_field',
                                                                         ),
@@ -7048,7 +7048,7 @@ function civicrm_views_handlers() {
                        'civicrm_handler_field_custom' => array(
                                                                'parent' => 'views_handler_field',
                                                                ),
-                       'civicrm_handler_field_custom_file' => array( 
+                       'civicrm_handler_field_custom_file' => array(
                                                                     'parent' => 'views_handler_field',
                                                                      ),
                        'civicrm_handler_field_campaign_type' => array(
@@ -7073,7 +7073,7 @@ function civicrm_views_handlers() {
                                                                'parent' => 'views_handler_field',
                                                                ),
 
-                                                                          
+
                        //FILTER HANDDLEAARRRS! Filter Handlers!
                        'civicrm_handler_filter_datetime' => array(
                                                                   'parent' => 'views_handler_filter_date',
@@ -7145,10 +7145,10 @@ function civicrm_views_handlers() {
                                                                           ),
                        'civicrm_handler_filter_relationship_type' => array(
                                                                            'parent' => 'views_handler_filter_in_operator',
-                                                                           ),    
+                                                                           ),
                        'civicrm_handler_filter_contact_type' => array(
                                                                       'parent' => 'views_handler_filter_in_operator',
-                                                                      ),                                                                           
+                                                                      ),
                        'civicrm_handler_filter_membership_type' => array(
                                                                          'parent' => 'views_handler_filter_in_operator',
                                                                          ),
@@ -7173,14 +7173,14 @@ function civicrm_views_handlers() {
                                                                        ),
                        'civicrm_handler_filter_grant_type' => array(
                                                                     'parent' => 'views_handler_filter_in_operator',
-                                                                    ),                                      
+                                                                    ),
                        'civicrm_handler_filter_grant_status' => array(
                                                                       'parent' => 'views_handler_filter_in_operator',
-                                                                      ),                                      
+                                                                      ),
                        'civicrm_handler_filter_pcp_status' => array(
                                                                       'parent' => 'views_handler_filter_in_operator',
                                                                       ),
-                       
+
                        // ARGUMENT HANDLERS
                        'civicrm_handler_argument_date_api_contact' => array(
                                                                             'parent' => 'date_api_argument_handler',
@@ -7214,6 +7214,6 @@ function civicrm_views_handlers() {
                         ),
 
                  );
-                 
+
 
 }
